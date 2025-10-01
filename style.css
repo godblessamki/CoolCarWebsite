@@ -9,6 +9,7 @@
   --neon-purple: #9a00ff;
   --bg-dark: #0a0a0a;
   --white: #ffffff;
+  --black-bg: #000000;
   --font-primary: 'Gallos Uncial', sans-serif;
 }
 
@@ -28,7 +29,8 @@ body {
 
 /* Header */
 header {
-  background: linear-gradient(90deg, var(--neon-red), var(--neon-blue));
+background: #FF004F;
+background: linear-gradient(90deg, rgba(255, 0, 79, 1) 0%, rgba(0, 0, 0, 1) 61%, rgba(0, 0, 0, 1) 100%);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -219,10 +221,10 @@ nav a:hover::after {
   font-weight: bold;
   color: var(--white);
   text-shadow:
-    0 0 10px var(--neon-purple),
-    0 0 20px var(--neon-blue),
-    0 0 40px var(--neon-blue),
-    0 0 80px var(--neon-purple);
+    0 0 10px var(--black-bg),
+    0 0 20px var(--neon-red),
+    0 0 40px var(--neon-red),
+    0 0 80px var(--black-bg);
   margin-bottom: 1rem;
   line-height: 1.1;
 }
