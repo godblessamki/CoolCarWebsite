@@ -1,0 +1,128 @@
+/* Hero Section */
+.hero {
+  background: url('images/hero-bg.png') no-repeat center center / cover;
+  min-height: 100vh;
+  text-align: center;
+  padding: 8rem 2rem;
+  position: relative;
+  color: var(--white);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInHero 1.2s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 0;
+  backdrop-filter: blur(2px);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.2), transparent 70%);
+  z-index: 1;
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* Hero Logo */
+.hero-logo {
+  font-family: var(--font-primary);
+  font-size: clamp(4rem, 10vw, 12rem);
+  font-weight: bold;
+  color: var(--white);
+  text-shadow:
+    0 0 10px var(--neon-purple),
+    0 0 20px var(--neon-blue),
+    0 0 40px var(--neon-blue),
+    0 0 80px var(--neon-purple);
+  margin-bottom: 1rem;
+  line-height: 1.1;
+}
+
+/* Hero Subtitle */
+.hero-subtitle {
+  font-size: 1.8rem;
+  margin-top: 1.5rem;
+  color: var(--white);
+}
+
+/* Info Section */
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 4rem 2rem;
+  background: #111;
+}
+
+.card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 350px;
+  flex: 1;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px var(--neon-purple);
+}
+
+.card h2 {
+  color: var(--neon-blue);
+  margin-bottom: 1rem;
+}
+
+/* Index page responsive styles */
+@media screen and (max-width: 768px) {
+  .hero {
+    padding: 4rem 1rem;
+    min-height: 70vh;
+  }
+  
+  .hero-logo {
+    font-size: 3rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+  
+  .info {
+    padding: 2rem 1rem;
+    flex-direction: column;
+  }
+  
+  .card {
+    max-width: 100%;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Very Small Phones */
+@media screen and (max-width: 480px) {
+  .hero-logo {
+    font-size: 2.5rem !important;
+  }
+}
