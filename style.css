@@ -582,22 +582,22 @@ footer .credits {
 
 .import-section:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px var(--neon-purple);
+  box-shadow: 0 0 20px var(--neon-red);
 }
 
 .import-section h2 {
-  color: var(--neon-blue);
+  color: var(--white);
   font-size: 1.8rem;
   margin-bottom: 1rem;
   font-family: var(--font-primary);
-  text-shadow: 0 0 8px var(--neon-purple);
+  text-shadow: 0 0 8px var(--neon-red);
 }
 
 .import-section p {
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--white);
-  text-shadow: 0 0 4px var(--neon-blue);
+  text-shadow: 0 0 4px var(--black-bg);
 }
 
 .import-cta {
