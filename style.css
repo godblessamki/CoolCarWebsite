@@ -191,22 +191,66 @@ nav a:hover::after {
   }
 }
 
-/* Hero Section */
+/* ...existing code... */
+
+/* Hero Section with Carousel */
 .hero {
-  background: url('images/hero-bg.png') no-repeat center center / cover;
+  /* Remove the background: url('images/hero-bg.png') line */
   min-height: 100vh;
-  text-align: center;
-  padding: 8rem 2rem;
   position: relative;
-  color: var(--white);
+  color: var(--neon-red);
   overflow: hidden;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInHero 1.2s ease-out forwards;
   will-change: transform, opacity;
-  margin-top: -30px; /* Pull hero up to overlap with header fade */
+  margin-top: -30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-logo {
+  font-family: var(--font-primary); /* Uses 'Gallos Uncial' */
+  font-size: 10rem;
+  font-weight: bold;
+  color: var(--neon-red);
+  text-shadow: 0 0 20px var(--neon-red), 0 0 40px var(--neon-red);
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
 }
 
+/* Carousel Container */
+.hero-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Dark Overlay for Text Readability */
 .hero::before {
   content: "";
   position: absolute;
@@ -218,49 +262,107 @@ nav a:hover::after {
       rgba(10, 10, 10, 0.2) 40%,
       rgba(0, 0, 0, 0.3) 100%
     );
-  z-index: 0;
+  z-index: 1;
   backdrop-filter: blur(1px);
 }
 
-.hero::after {
-  content: "";
-  position: absolute;
-  top: -10%;
-  left: -10%;
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle, rgba(0, 240, 255, 0.2), transparent 70%);
-  z-index: 1;
-  animation: pulseGlow 3s infinite ease-in-out;
-}
-
-.hero > * {
+/* Hero Content */
+.hero-content {
   position: relative;
-  z-index: 2;
-  text-shadow: 0 0 8px var(--neon-blue);
+  z-index: 3;
+  text-align: center;
+  padding: 3rem;
 }
 
-/* Hero Logo */
-.hero-logo {
-  font-family: var(--font-primary);
-  font-size: clamp(4rem, 10vw, 12rem);
-  font-weight: bold;
-  color: var(--white);
-  text-shadow:
-    0 0 10px var(--black-bg),
-    0 0 20px var(--neon-red),
-    0 0 40px var(--neon-red),
-    0 0 80px var(--black-bg);
-  margin-bottom: 1rem;
-  line-height: 1.1;
+.hero-content > * {
+  text-shadow: 0 0 8px var(--neon-red);
+  color: var(--neon-red);
 }
 
-/* Hero Subtitle */
-.hero-subtitle {
-  font-size: 1.8rem;
-  margin-top: 1.5rem;
-  color: var(--white);
+/* Navigation Arrows */
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 4;
+  transform: translateY(-50%);
 }
+
+.slider-nav button {
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  border: 2px solid var(--neon-red);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-red);
+}
+
+.slider-nav button:hover {
+  background: var(--neon-red);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--neon-red);
+}
+
+/* Dots Indicator */
+.slider-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 4;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.dot.active,
+.dot:hover {
+  background: var(--neon-red);
+  box-shadow: 0 0 10px var(--neon-red);
+  border-color: var(--white);
+}
+
+/* ...existing code... */
+
+/* Responsive for Carousel */
+@media screen and (max-width: 768px) {
+  .slider-nav {
+    padding: 0 1rem;
+  }
+  
+  .slider-nav button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .slider-dots {
+    bottom: 20px;
+  }
+  
+  .dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ...existing code... */
 
 /* Buttons */
 .btn {
@@ -305,11 +407,11 @@ nav a:hover::after {
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 0 20px var(--neon-purple);
+  box-shadow: 0 0 20px var(--neon-red);
 }
 
 .card h2 {
-  color: var(--neon-blue);
+  color: var(--neon-red);
   margin-bottom: 1rem;
 }
 
@@ -317,7 +419,7 @@ nav a:hover::after {
 footer {
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(90deg, var(--neon-blue), var(--neon-purple));
+  background: linear-gradient(90deg, rgba(255, 0, 79, 1) 0%, rgba(0, 0, 0, 1) 61%, rgba(0, 0, 0, 1) 100%);
   color: var(--white);
   font-size: 0.9rem;
 }

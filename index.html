@@ -33,9 +33,37 @@
   
 
   <section class="hero">
-    <h1 class="hero-logo">COOL-CAR</h1>
-    <p style="font-size: 1.5rem;">Vaše cesta k tomu správnému vozu. Bez vyjímek.</p>
-    <a href="about.html" class="btn">O nás</a>
+    <div class="hero-slider">
+      <div class="slide active">
+        <img src="images/car1.jpg" alt="Luxusní BMW">
+      </div>
+      <div class="slide">
+        <img src="images/car2.jpg" alt="Mercedes-Benz">
+      </div>
+      <div class="slide">
+        <img src="images/car3.jpg" alt="Audi Sport">
+      </div>
+    </div>
+    
+    <!-- Carousel Navigation -->
+    <div class="slider-nav">
+      <button class="prev" onclick="changeSlide(-1)">‹</button>
+      <button class="next" onclick="changeSlide(1)">›</button>
+    </div>
+    
+    <!-- Dots Indicator -->
+    <div class="slider-dots">
+      <span class="dot active" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="hero-content">
+      <h1 class="hero-logo">COOL-CAR</h1>
+      <p style="font-size: 1.5rem;">Vaše cesta k tomu správnému vozu. Bez vyjímek.</p>
+      <a href="about.html" class="btn">O nás</a>
+    </div>
   </section>
 
   <section class="info">
@@ -50,12 +78,12 @@
     </div>
   </section>
 
-  <!-- Recenze Section s ID pro anchor -->
+  <!-- Recenze Section s ID pro anchor 
   <section id="reviews" style="padding: 2rem; background: #0a0a0a;">
     <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
     <div class="commonninja_component pid-9634df19-7fde-4304-960d-c33a7fe82c44"></div>
   </section>
-
+  Footer -->
   <footer>
     <p>© 2025 Cool-Car. Všechna práva vyhrazena.</p>
     <p>made by Samuel Kouřil</p>
