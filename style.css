@@ -31,13 +31,18 @@ body {
 header {
   background: #FF004F;
   background: linear-gradient(90deg, rgba(255, 0, 79, 1) 0%, rgba(0, 0, 0, 1) 61%, rgba(0, 0, 0, 1) 100%);
-  padding: 1rem 2rem;
+  padding: 0.5rem 2rem; /* Reduced from 1rem to 0.5rem */
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 0 15px var(--neon-red);
-  position: relative;
-  z-index: 10;
+  position: fixed; /* Changed from relative to fixed */
+  top: 0; /* Stick to top */
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000; /* Higher z-index to stay above content */
+  backdrop-filter: blur(10px); /* Optional: adds blur effect */
 }
 
 /* Fade from header */
@@ -59,7 +64,7 @@ header::after {
 }
 .logo {
   font-family: var(--font-primary);
-  font-size: 3rem;
+  font-size: 2.5rem; /* Reduced from 3rem to 2.5rem */
   font-weight: bold;
   color: var(--white);
 }
@@ -190,12 +195,19 @@ nav a:hover::after {
     width: 100%;
   }
 }
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  padding-top: 80px; /* Add space for fixed header */
+}
 
 /* ...existing code... */
 
 /* Hero Section with Carousel */
 .hero {
-  /* Remove the background: url('images/hero-bg.png') line */
   min-height: 100vh;
   position: relative;
   color: var(--neon-red);
@@ -204,7 +216,7 @@ nav a:hover::after {
   transform: translateY(20px);
   animation: fadeInHero 1.2s ease-out forwards;
   will-change: transform, opacity;
-  margin-top: -30px;
+  /* margin-top: -30px; Remove this line */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,8 +224,9 @@ nav a:hover::after {
 .hero-logo {
   font-family: var(--font-primary); /* Uses 'Gallos Uncial' */
   font-size: 10rem;
+  opacity: 0.8; /* Slightly reduced opacity for a softer look */
   font-weight: bold;
-  color: var(--neon-red);
+  color: var(--white);
   text-shadow: 0 0 20px var(--neon-red), 0 0 40px var(--neon-red);
   margin-bottom: 1rem;
   letter-spacing: 2px;
@@ -276,7 +289,7 @@ nav a:hover::after {
 
 .hero-content > * {
   text-shadow: 0 0 8px var(--neon-red);
-  color: var(--neon-red);
+  color: var(--white);
 }
 
 /* Navigation Arrows */
