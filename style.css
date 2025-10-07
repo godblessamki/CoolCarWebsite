@@ -733,7 +733,7 @@ footer .credits {
 .import-cta {
   text-align: center;
   padding: 3rem 2rem;
-  background: linear-gradient(90deg, var(--neon-red), var(--neon-purple));
+  background:linear-gradient(90deg, rgba(255, 0, 79, 1) 0%, rgba(0, 0, 0, 1) 61%, rgba(0, 0, 0, 1) 100%);
 }
 
 .import-cta .btn {
