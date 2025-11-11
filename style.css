@@ -948,3 +948,129 @@ footer .credits {
     font-size: 1.8rem !important;
   }
 }
+/* ===== IMPORT PAGE CAROUSEL STYLES ===== */
+.import-carousel-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.import-carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.import-carousel-slide.active {
+  opacity: 1;
+}
+
+.import-carousel-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.import-carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+/* Carousel Navigation Buttons */
+.import-slider-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 4;
+  transform: translateY(-50%);
+}
+
+.import-slider-nav button {
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  border: 2px solid var(--neon-red);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-red);
+}
+
+.import-slider-nav button:hover {
+  background: var(--neon-red);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--neon-red);
+}
+
+/* Carousel Dots Indicator */
+.import-slider-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 4;
+}
+
+.import-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.import-dot.active,
+.import-dot:hover {
+  background: var(--neon-red);
+  box-shadow: 0 0 10px var(--neon-red);
+  border-color: var(--white);
+}
+
+/* Mobile responsive for import carousel */
+@media screen and (max-width: 768px) {
+  .import-slider-nav {
+    padding: 0 1rem;
+  }
+  
+  .import-slider-nav button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .import-slider-dots {
+    bottom: 20px;
+  }
+  
+  .import-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
