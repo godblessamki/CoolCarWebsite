@@ -1074,3 +1074,53 @@ footer .credits {
     height: 10px;
   }
 }
+/* Social Media Icons in Footer */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 2px solid var(--neon-red);
+  box-shadow: 0 0 10px var(--neon-red);
+}
+
+.social-links a:hover {
+  background: var(--neon-red);
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 0 20px var(--neon-red);
+}
+
+.social-links svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--white);
+}
+
+@media screen and (max-width: 768px) {
+  .social-links {
+    gap: 1rem;
+  }
+  
+  .social-links a {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .social-links svg {
+    width: 20px;
+    height: 20px;
+  }
+}
