@@ -7,10 +7,10 @@
 
 .contact h1 {
   font-size: 2.5rem;
-  color: var(--neon-blue);
+  color: var(--neon-red);
   margin-bottom: 2rem;
   font-family: var(--font-primary);
-  text-shadow: 0 0 10px var(--neon-purple);
+  text-shadow: 0 0 10px var(--black-bg);
 }
 
 .contact-grid {
@@ -31,7 +31,7 @@
 .contact-info p, .contact-info a {
   margin-bottom: 1rem;
   color: var(--white);
-  text-shadow: 0 0 6px var(--neon-blue);
+  text-shadow: 0 0 6px var(--neon-red );
   text-decoration: none;
 }
 
@@ -50,7 +50,7 @@
   border-radius: 5px;
   background: #1a1a1a;
   color: var(--white);
-  box-shadow: 0 0 10px var(--neon-blue);
+  box-shadow: 0 0 10px var(--neon-red);
   font-size: 1rem;
 }
 
@@ -66,18 +66,30 @@
 /* Google Map Styling */
 .map-frame {
   width: 100%;
-  height: 400px;
+  height: 31rem;
   border: none;
   margin-top: 2rem;
   filter: brightness(0.85) contrast(1.2);
-  box-shadow: 0 0 20px var(--neon-blue);
+  box-shadow: 0 0 20px var(--neon-red);
 }
 
 body.contact-page .contact h1 {
   font-family: Arial, sans-serif;
 }
 
-/* Contact page responsive styles */
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .contact-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
+}
+
+/* Contact Page Mobile */
 @media screen and (max-width: 768px) {
   .contact {
     padding: 2rem 1rem;
@@ -103,8 +115,48 @@ body.contact-page .contact h1 {
   }
 }
 
+/* Very Small Phones */
 @media screen and (max-width: 480px) {
   .contact h1 {
     font-size: 1.8rem;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .contact {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact-grid {
+    gap: 2rem;
+  }
+
+  .map-frame {
+    height: 25rem;
+  }
+}
+
+/* Large Screens */
+@media screen and (min-width: 1440px) {
+  .contact {
+    padding: 5rem 4rem;
+  }
+
+  .contact-grid {
+    max-width: 1200px;
+    gap: 4rem;
+  }
+
+  .contact-info {
+    max-width: 500px;
+  }
+
+  .contact-form {
+    max-width: 500px;
+  }
+
+  .map-frame {
+    height: 35rem;
   }
 }

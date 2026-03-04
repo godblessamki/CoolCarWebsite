@@ -1,5 +1,6 @@
 /* Import Page Specific Styles */
 .import-hero {
+  /* ODEBER: background: url('images/import-bg.jpg') no-repeat center center / cover; */
   min-height: 60vh;
   text-align: center;
   padding: 4rem 2rem;
@@ -23,8 +24,8 @@
 
 .import-hero h1 {
   font-size: 3rem;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px var(--neon-purple);
+  color: var(--white);
+  text-shadow: 0 0 10px var(--neon-red);
   margin-bottom: 1rem;
   font-family: var(--font-primary);
 }
@@ -46,28 +47,28 @@
 
 .import-section:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px var(--neon-purple);
+  box-shadow: 0 0 20px var(--neon-red);
 }
 
 .import-section h2 {
-  color: var(--neon-blue);
+  color: var(--white);
   font-size: 1.8rem;
   margin-bottom: 1rem;
   font-family: var(--font-primary);
-  text-shadow: 0 0 8px var(--neon-purple);
+  text-shadow: 0 0 8px var(--neon-red);
 }
 
 .import-section p {
   font-size: 1.1rem;
   line-height: 1.7;
   color: var(--white);
-  text-shadow: 0 0 4px var(--neon-blue);
+  text-shadow: 0 0 4px var(--black-bg);
 }
 
 .import-cta {
   text-align: center;
   padding: 3rem 2rem;
-  background: linear-gradient(90deg, var(--neon-red), var(--neon-purple));
+  background:linear-gradient(90deg, rgba(255, 0, 79, 1) 0%, rgba(0, 0, 0, 1) 61%, rgba(0, 0, 0, 1) 100%);
 }
 
 .import-cta .btn {
@@ -75,8 +76,153 @@
   padding: 1rem 2rem;
 }
 
-/* Import page responsive styles */
+/* Responsive */
 @media screen and (max-width: 768px) {
+  .import-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .import-section {
+    padding: 1.5rem;
+    margin: 0 auto 2rem auto;
+  }
+  
+  .import-section h2 {
+    font-size: 1.5rem;
+  }
+}
+
+/* ===== IMPORT PAGE CAROUSEL STYLES ===== */
+.import-carousel-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.import-carousel-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.import-carousel-slide.active {
+  opacity: 1;
+}
+
+.import-carousel-content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  padding: 2rem;
+}
+
+.import-carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+/* Carousel Navigation Buttons */
+.import-slider-nav {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+  z-index: 4;
+  transform: translateY(-50%);
+}
+
+.import-slider-nav button {
+  background: rgba(0, 0, 0, 0.5);
+  color: var(--white);
+  border: 2px solid var(--neon-red);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px var(--neon-red);
+}
+
+.import-slider-nav button:hover {
+  background: var(--neon-red);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px var(--neon-red);
+}
+
+/* Carousel Dots Indicator */
+.import-slider-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 4;
+}
+
+.import-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.import-dot.active,
+.import-dot:hover {
+  background: var(--neon-red);
+  box-shadow: 0 0 10px var(--neon-red);
+  border-color: var(--white);
+}
+
+/* Mobile responsive for import carousel */
+@media screen and (max-width: 768px) {
+  .import-slider-nav {
+    padding: 0 1rem;
+  }
+  
+  .import-slider-nav button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+  
+  .import-slider-dots {
+    bottom: 20px;
+  }
+  
+  .import-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+@media screen and (max-width: 768px) {
+  
+  /* Import Page Mobile */
   .import-hero {
     min-height: 50vh;
     padding: 3rem 1rem;
@@ -109,8 +255,63 @@
   }
 }
 
+/* Very Small Phones */
 @media screen and (max-width: 480px) {
   .import-hero h1 {
     font-size: 1.8rem;
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 1024px) {
+  .import-hero {
+    min-height: 50vh;
+    padding: 3rem 1.5rem;
+  }
+
+  .import-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .import-section {
+    max-width: 800px;
+  }
+
+  .import-slider-nav {
+    padding: 0 1.5rem;
+  }
+
+  .import-slider-nav button {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Large Screens */
+@media screen and (min-width: 1440px) {
+  .import-hero {
+    min-height: 70vh;
+    padding: 5rem 4rem;
+  }
+
+  .import-hero h1 {
+    font-size: 4rem;
+  }
+
+  .import-content {
+    padding: 5rem 4rem;
+  }
+
+  .import-section {
+    max-width: 1200px;
+    padding: 2.5rem;
+  }
+
+  .import-section h2 {
+    font-size: 2rem;
+  }
+
+  .import-section p {
+    font-size: 1.2rem;
   }
 }
