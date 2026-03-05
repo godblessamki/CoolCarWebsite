@@ -3,24 +3,24 @@
   background: #0a0a0a;
   text-align: center;
   color: var(--white);
-  box-shadow: 0 0 15px var(--neon-blue);
+  box-shadow: 0 0 15px var(--neon-red);
 }
 
 .about-text h1 {
   font-size: 2rem;
-  color: var(--neon-blue);
+  color: var(--neon-red);
   margin-bottom: 1rem;
   font-family: Arial, sans-serif; /* ⬅️ changed from var(--font-primary) */
-  text-shadow: 0 0 10px var(--neon-purple);
+  text-shadow: 0 0 10px var(--black-bg);
 }
 
 
 .about-text h1 {
   font-size: 2rem;
-  color: var(--neon-blue);
+  color: var(--neon-red);
   margin-bottom: 1rem;
   font-family: var(--font-primary);
-  text-shadow: 0 0 10px var(--neon-purple);
+  text-shadow: 0 0 10px var(--black-bg);
 }
 
 .about-text p {
