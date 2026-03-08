@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'Gallos Uncial';
   src: url('../fonts/GallosUncial.ttf') format('truetype');
+  font-display: swap;
 }
 
 :root {
