@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
 @font-face {
   font-family: 'Gallos Uncial';
   src: url('../fonts/GallosUncial.ttf') format('truetype');
@@ -12,6 +14,9 @@
   --white: #ffffff;
   --black-bg: #000000;
   --font-primary: 'Gallos Uncial', sans-serif;
+  --font-body: 'Inter', system-ui, Arial, sans-serif;
+  --transition-base: 0.35s ease;
+  --glass-bg: rgba(10, 10, 10, 0.92);
 }
 
 * {
