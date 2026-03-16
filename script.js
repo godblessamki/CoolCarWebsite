@@ -131,3 +131,67 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 // ...existing code...
+// ===== MODERNIZATION & RESPONSIVE FEATURES =====
+
+// 1. Header scroll-shrink — adds .scrolled class when page is scrolled >60px
+(function () {
+  var headerEl = document.querySelector('header');
+  if (!headerEl) return;
+  function onScroll() {
+    headerEl.classList.toggle('scrolled', window.scrollY > 60);
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll(); // run once on load in case page is already scrolled
+}());
+
+// 2. Auto-detect active nav link based on current page filename
+(function () {
+  var raw = window.location.pathname.split('/').pop();
+  var page = (raw === '' || raw === undefined) ? 'index.html' : raw;
+  document.querySelectorAll('nav a').forEach(function (link) {
+    link.classList.remove('active');
+    var href = link.getAttribute('href');
+    if (href === page) {
+      link.classList.add('active');
+    }
+  });
+}());
+
+// 3. Close mobile nav when any nav link is clicked
+document.querySelectorAll('#main-nav a').forEach(function (link) {
+  link.addEventListener('click', function () {
+    var navEl = document.getElementById('main-nav');
+    var toggleEl = document.getElementById('menu-toggle');
+    if (navEl) navEl.classList.remove('open');
+    if (toggleEl) toggleEl.classList.remove('active');
+  });
+});
+
+// 4. Scroll-reveal with IntersectionObserver
+// Elements gain .reveal (hidden) when JS loads, then .visible when they enter the viewport.
+// Falls back gracefully if IntersectionObserver is unsupported.
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+
+  var targets = document.querySelectorAll(
+    '.card, .about-section, .import-section, .contact-grid, .sales-content'
+  );
+  if (!targets.length) return;
+
+  targets.forEach(function (el) {
+    el.classList.add('reveal');
+  });
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // animate once only
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(function (el) {
+    observer.observe(el);
+  });
+}());

@@ -50,8 +50,17 @@
   border-radius: 5px;
   background: #1a1a1a;
   color: var(--white);
+  font-family: var(--font-body);
   box-shadow: 0 0 10px var(--neon-red);
   font-size: 1rem;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  background: #222;
+  box-shadow: 0 0 20px var(--neon-red), 0 0 40px rgba(255, 0, 79, 0.25);
 }
 
 .contact-form textarea {
@@ -158,5 +167,66 @@ body.contact-page .contact h1 {
 
   .map-frame {
     height: 35rem;
+  }
+}
+
+/* ===== ULTRA-SMALL PHONES (≤360px) ===== */
+@media screen and (max-width: 360px) {
+  .contact {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .contact h1 {
+    font-size: 1.5rem;
+  }
+
+  .contact-info {
+    font-size: 0.9rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+
+  .map-frame {
+    height: 220px;
+    margin-top: 1.25rem;
+  }
+}
+
+/* ===== ULTRA-WIDE / 4K (≥1920px) ===== */
+@media screen and (min-width: 1920px) {
+  .contact {
+    padding: 6rem 8rem;
+  }
+
+  .contact h1 {
+    font-size: 3.5rem;
+  }
+
+  .contact-grid {
+    max-width: 1600px;
+    gap: 6rem;
+  }
+
+  .contact-info {
+    max-width: 650px;
+    font-size: 1.3rem;
+  }
+
+  .contact-form {
+    max-width: 650px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 1.2rem;
+    padding: 1rem 1.25rem;
+  }
+
+  .map-frame {
+    height: 45rem;
   }
 }

@@ -41,13 +41,14 @@
   padding: 2rem;
   background: #1a1a1a;
   border-radius: 10px;
+  border-left: 3px solid rgba(255, 0, 79, 0.4);
   box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-  transition: transform 0.3s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .import-section:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px var(--neon-red);
+  box-shadow: 0 0 25px var(--neon-red), 0 0 50px rgba(255, 0, 79, 0.15);
 }
 
 .import-section h2 {
@@ -110,10 +111,18 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  transform: scale(1);
 }
 
+/* Ken Burns zoom on active import carousel slide */
 .import-carousel-slide.active {
   opacity: 1;
+  animation: kenBurnsImport 8s ease-out forwards;
+}
+
+@keyframes kenBurnsImport {
+  from { transform: scale(1); }
+  to   { transform: scale(1.05); }
 }
 
 .import-carousel-content {
@@ -313,5 +322,94 @@
 
   .import-section p {
     font-size: 1.2rem;
+  }
+}
+
+/* ===== ULTRA-SMALL PHONES (≤360px) ===== */
+@media screen and (max-width: 360px) {
+  .import-hero {
+    min-height: 40vh;
+    padding: 2rem 0.75rem;
+  }
+
+  .import-hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .import-hero p {
+    font-size: 0.9rem;
+  }
+
+  .import-content {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .import-section {
+    padding: 1.2rem;
+    margin: 0 auto 1.25rem auto;
+  }
+
+  .import-section h2 {
+    font-size: 1.1rem;
+  }
+
+  .import-section p {
+    font-size: 0.9rem;
+  }
+
+  .import-cta {
+    padding: 2rem 1rem;
+  }
+
+  .import-cta .btn {
+    font-size: 1rem;
+    padding: 0.85rem 1.5rem;
+  }
+
+  .import-slider-nav button {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .import-slider-nav {
+    padding: 0 0.5rem;
+  }
+}
+
+/* ===== ULTRA-WIDE / 4K (≥1920px) ===== */
+@media screen and (min-width: 1920px) {
+  .import-hero {
+    min-height: 75vh;
+  }
+
+  .import-hero h1 {
+    font-size: 5rem;
+  }
+
+  .import-content {
+    padding: 6rem 8rem;
+  }
+
+  .import-section {
+    max-width: 1400px;
+    padding: 3rem;
+  }
+
+  .import-section h2 {
+    font-size: 2.5rem;
+  }
+
+  .import-section p {
+    font-size: 1.3rem;
+  }
+
+  .import-cta {
+    padding: 5rem 8rem;
+  }
+
+  .import-cta .btn {
+    font-size: 1.4rem;
+    padding: 1.25rem 2.5rem;
   }
 }

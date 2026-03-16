@@ -26,12 +26,12 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg-dark);
   color: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
-  padding-top: 80px; /* Add space for fixed header */
+  padding-top: 80px;
 }
 
 /* Header */
@@ -136,8 +136,12 @@ nav a:hover::after {
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
+  font-family: var(--font-body);
+  letter-spacing: 0.5px;
   box-shadow: 0 0 10px var(--neon-red);
-  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+  border: 1px solid rgba(255, 0, 79, 0.5);
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s, transform 0.3s, border-color 0.3s;
   display: inline-block;
   margin-top: 2rem;
 }
@@ -453,5 +457,154 @@ footer .credits {
   footer {
     padding: 3rem 4rem;
     font-size: 1rem;
+  }
+}
+
+/* ===== MODERNIZATION & CROSS-DEVICE ENHANCEMENTS ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Adjust body padding for smaller header on mobile */
+@media screen and (max-width: 768px) {
+  body {
+    padding-top: 64px;
+  }
+}
+
+/* Header smooth transition (enables scroll-shrink via JS) */
+header {
+  transition: padding 0.4s ease, background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Header glass effect when page is scrolled (class added by JS) */
+header.scrolled {
+  padding: 0.2rem 2rem;
+  background: rgba(8, 8, 8, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 2px 30px rgba(255, 0, 79, 0.45);
+}
+
+@media screen and (max-width: 768px) {
+  header.scrolled {
+    padding: 0.3rem 1rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  header.scrolled {
+    padding: 0.2rem 4rem;
+  }
+}
+
+/* Active nav link (current page — set by JS) */
+nav a.active {
+  color: var(--neon-red);
+}
+
+nav a.active::after {
+  transform: scaleX(1);
+}
+
+/* ===== SCROLL-REVEAL ANIMATION ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Sibling stagger: each successive .reveal delays slightly */
+.reveal:nth-child(2) { transition-delay: 0.12s; }
+.reveal:nth-child(3) { transition-delay: 0.24s; }
+.reveal:nth-child(4) { transition-delay: 0.36s; }
+.reveal:nth-child(5) { transition-delay: 0.48s; }
+
+/* ===== ULTRA-SMALL PHONES (≤360px) ===== */
+@media screen and (max-width: 360px) {
+  body {
+    font-size: 13px;
+    padding-top: 58px;
+  }
+
+  header {
+    padding: 0.4rem 0.75rem;
+  }
+
+  header .logo {
+    font-size: 1.3rem;
+  }
+
+  .btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  footer {
+    padding: 1.2rem 0.75rem;
+    font-size: 0.75rem;
+  }
+
+  .social-links {
+    gap: 0.6rem;
+  }
+
+  .social-links a {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social-links svg {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+/* ===== ULTRA-WIDE / 4K (≥1920px) ===== */
+@media screen and (min-width: 1920px) {
+  body {
+    padding-top: 90px;
+  }
+
+  header {
+    padding: 0.75rem 8rem;
+  }
+
+  header.scrolled {
+    padding: 0.3rem 8rem;
+  }
+
+  .logo {
+    font-size: 3.5rem;
+  }
+
+  nav ul {
+    gap: 2.5rem;
+  }
+
+  nav a {
+    font-size: 1.4rem;
+  }
+
+  footer {
+    padding: 3.5rem 8rem;
+    font-size: 1.1rem;
+  }
+
+  .social-links a {
+    width: 52px;
+    height: 52px;
+  }
+
+  .social-links svg {
+    width: 28px;
+    height: 28px;
   }
 }

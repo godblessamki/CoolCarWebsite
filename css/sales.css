@@ -49,3 +49,34 @@
     font-size: 3rem;
   }
 }
+
+/* ===== ULTRA-SMALL PHONES (≤360px) ===== */
+@media screen and (max-width: 360px) {
+  .sales-content {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .sales-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .sales-content p {
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== ULTRA-WIDE / 4K (≥1920px) ===== */
+@media screen and (min-width: 1920px) {
+  .sales-content {
+    padding: 6rem 8rem;
+  }
+
+  .sales-content h1 {
+    font-size: 3.5rem;
+  }
+
+  .sales-content p {
+    font-size: 1.3rem;
+    max-width: 1000px;
+  }
+}
