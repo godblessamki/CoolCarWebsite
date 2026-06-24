@@ -61,11 +61,24 @@
     </a>
   </div>
 
-      <form class="contact-form">
-        <input type="text" placeholder="Vaše jméno" required />
-        <input type="email" placeholder="Váš e-mail" required />
-        <textarea placeholder="Vaše zpráva" required></textarea>
+      <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <!-- Web3Forms Access Key - REPLACE with your real key from web3forms.com -->
+        <input type="hidden" name="access_key" value="5a0d56bc-07ea-48cb-b168-258756081e94">
+        
+        <!-- Custom subject line for the email you'll receive -->
+        <input type="hidden" name="subject" value="Nová zpráva z webu Cool-Car">
+        
+        
+        <!-- Honeypot spam protection (invisible to real users) -->
+        <input type="hidden" name="botcheck" style="display: none;">
+        
+        <input type="text" name="name" placeholder="Vaše jméno" required />
+        <input type="email" name="email" placeholder="Váš e-mail" required />
+        <textarea name="message" placeholder="Vaše zpráva" required></textarea>
         <button type="submit" class="btn">Odeslat</button>
+        
+        <!-- Success/Error message area -->
+        <div id="form-status" class="form-status"></div>
       </form>
     </div>
   </section>
