@@ -25,37 +25,41 @@
 .import-hero h1 {
   font-size: 3rem;
   color: var(--white);
-  text-shadow: 0 0 10px var(--neon-red);
+  text-shadow: 0 0 10px var(--accent-red-glow);
   margin-bottom: 1rem;
-  font-family: var(--font-primary);
+  font-family: var(--font-body);
+  font-weight: 800;
 }
 
 .import-content {
   padding: 4rem 2rem;
-  background: #0a0a0a;
+  background: var(--bg-dark);
 }
 
 .import-section {
   max-width: 1000px;
   margin: 0 auto 3rem auto;
   padding: 2rem;
-  background: #1a1a1a;
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
-  transition: transform 0.3s ease;
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .import-section:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 20px var(--neon-red);
+  border-color: var(--accent-red);
+  box-shadow: 0 8px 32px var(--accent-red-glow);
 }
 
 .import-section h2 {
-  color: var(--white);
+  color: var(--accent-red);
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  font-family: var(--font-primary);
-  text-shadow: 0 0 8px var(--neon-red);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-shadow: 0 0 8px var(--accent-red-glow);
 }
 
 .import-section p {
@@ -68,7 +72,7 @@
 .import-cta {
   text-align: center;
   padding: 3rem 2rem;
-  background:linear-gradient(90deg, rgba(255, 0, 79, 1) 0%, rgba(0, 0, 0, 1) 61%, rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(135deg, rgba(230, 57, 70, 0.15) 0%, var(--bg-dark) 50%, var(--bg-dark) 100%);
 }
 
 .import-cta .btn {
@@ -151,22 +155,22 @@
 }
 
 .import-slider-nav button {
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--bg-card);
+  backdrop-filter: var(--glass-blur);
   color: var(--white);
-  border: 2px solid var(--neon-red);
+  border: 1px solid var(--glass-border);
   width: 50px;
   height: 50px;
   border-radius: 50%;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 0 10px var(--neon-red);
 }
 
 .import-slider-nav button:hover {
-  background: var(--neon-red);
+  border-color: var(--accent-red);
+  background: rgba(230, 57, 70, 0.2);
   transform: scale(1.1);
-  box-shadow: 0 0 20px var(--neon-red);
 }
 
 /* Carousel Dots Indicator */
@@ -192,8 +196,8 @@
 
 .import-dot.active,
 .import-dot:hover {
-  background: var(--neon-red);
-  box-shadow: 0 0 10px var(--neon-red);
+  background: var(--accent-red);
+  box-shadow: 0 0 10px var(--accent-red-glow);
   border-color: var(--white);
 }
 

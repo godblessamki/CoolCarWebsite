@@ -5,13 +5,18 @@
 }
 
 :root {
-  --neon-blue: #00f0ff;
-  --neon-red: #ff004f;
-  --neon-purple: #9a00ff;
+  --accent-red: #e63946;
+  --accent-red-dark: #c1121f;
+  --accent-red-glow: rgba(230, 57, 70, 0.3);
   --bg-dark: #0a0a0a;
+  --bg-surface: #111111;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(20px);
   --white: #ffffff;
-  --black-bg: #000000;
-  --font-primary: 'Gallos Uncial', sans-serif;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --font-primary: 'Gallos Uncial', sans-serif; /* LOGO ONLY */
+  --font-body: 'Inter', sans-serif;
 }
 
 * {
@@ -21,7 +26,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--bg-dark);
   color: var(--white);
   line-height: 1.6;
@@ -31,34 +36,34 @@ body {
 
 /* Header */
 header {
-  background: #FF004F;
-  background: linear-gradient(90deg, rgba(255, 0, 79, 1) 0%, rgba(0, 0, 0, 1) 61%, rgba(0, 0, 0, 1) 100%);
-  padding: 0.5rem 2rem; /* Reduced from 1rem to 0.5rem */
+  background: rgba(20, 10, 12, 0.85);
+  padding: 0.5rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 0 15px var(--neon-red);
-  position: fixed; /* Changed from relative to fixed */
-  top: 0; /* Stick to top */
+  border-bottom: 2px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--accent-red), transparent) 1;
+  position: fixed;
+  top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 1000; /* Higher z-index to stay above content */
-  backdrop-filter: blur(10px); /* Optional: adds blur effect */
+  z-index: 1000;
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
 }
 
 /* Fade from header */
 header::after {
   content: "";
   position: absolute;
-  bottom: -30px;
+  bottom: -20px;
   left: 0;
   width: 100%;
-  height: 30px;
+  height: 20px;
   background: linear-gradient(to bottom, 
-    rgba(0, 0, 0, 0.8) 0%, 
-    rgba(0, 0, 0, 0.4) 30%,
-    rgba(0, 0, 0, 0.1) 70%,
+    rgba(10, 10, 10, 0.5) 0%, 
+    rgba(10, 10, 10, 0.2) 40%,
     transparent 100%
   );
   z-index: 1;
@@ -67,7 +72,7 @@ header::after {
 
 .logo {
   font-family: var(--font-primary);
-  font-size: 2.5rem; /* Reduced from 3rem to 2.5rem */
+  font-size: 2.5rem;
   font-weight: bold;
   color: var(--white);
 }
@@ -75,11 +80,7 @@ header::after {
 .logo a {
   color: var(--white);
   text-decoration: none;
-  text-shadow: 
-    0 0 5px var(--neon-red), 
-    0 0 10px var(--black-bg),
-    0 0 20px var(--black-bg),
-    0 0 40px var(--neon-red);
+  text-shadow: 0 0 10px var(--accent-red-glow);
 }
 
 /* Nav */
@@ -93,6 +94,7 @@ nav a {
   position: relative;
   color: var(--white);
   text-decoration: none;
+  font-family: var(--font-body);
   font-weight: 900;
   font-size: 1.2rem;
   letter-spacing: 0.5px;
@@ -107,15 +109,15 @@ nav a::after {
   bottom: -4px;
   width: 100%;
   height: 2px;
-  background: var(--neon-red);
+  background: var(--accent-red);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s ease;
-  box-shadow: 0 0 10px var(--neon-red), 0 0 20px var(--neon-red);
+  box-shadow: 0 0 6px var(--accent-red-glow);
 }
 
 nav a:hover {
-  color: var(--neon-red);
+  color: var(--accent-red);
   transform: scale(1.05);
 }
 
@@ -125,22 +127,22 @@ nav a:hover::after {
 
 /* Buttons */
 .btn {
-  background: var(--black-bg);
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-red-dark));
   color: var(--white);
   padding: 0.75rem 1.5rem;
   text-decoration: none;
-  border-radius: 6px;
+  border-radius: 50px;
+  font-family: var(--font-body);
   font-weight: bold;
-  box-shadow: 0 0 10px var(--neon-red);
-  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
   display: inline-block;
   margin-top: 2rem;
 }
 
 .btn:hover {
-  background: var(--neon-red);
   transform: scale(1.05) translateY(-3px);
-  animation: pulse 1.2s infinite;
+  filter: brightness(1.1);
+  box-shadow: 0 8px 25px var(--accent-red-glow);
   color: var(--white);
 }
 
@@ -148,7 +150,11 @@ nav a:hover::after {
 footer {
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(90deg, rgba(255, 0, 79, 1) 0%, rgba(0, 0, 0, 1) 61%, rgba(0, 0, 0, 1) 100%);
+  background: rgba(20, 10, 12, 0.85);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(90deg, transparent, var(--accent-red), transparent) 1;
   color: var(--white);
   font-size: 0.9rem;
 }
@@ -158,7 +164,7 @@ footer .credits {
   color: var(--white);
   opacity: 0.7;
   margin-top: 0.5rem;
-  text-shadow: 0 0 6px var(--neon-blue);
+  text-shadow: 0 0 6px var(--accent-red-glow);
 }
 
 /* Social Media Icons in Footer */
@@ -176,18 +182,17 @@ footer .credits {
   justify-content: center;
   width: 45px;
   height: 45px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--bg-card);
   border-radius: 50%;
   transition: all 0.3s ease;
   text-decoration: none;
-  border: 2px solid var(--neon-red);
-  box-shadow: 0 0 10px var(--neon-red);
+  border: 1px solid var(--glass-border);
 }
 
 .social-links a:hover {
-  background: var(--neon-red);
+  background: rgba(230, 57, 70, 0.2);
+  border-color: var(--accent-red);
   transform: scale(1.1) translateY(-3px);
-  box-shadow: 0 0 20px var(--neon-red);
 }
 
 .social-links svg {
@@ -210,9 +215,9 @@ footer .credits {
 .menu-toggle span {
   display: block;
   height: 3px;
-  background: var(--neon-blue);
+  background: var(--accent-red);
   border-radius: 2px;
-  box-shadow: 0 0 5px var(--neon-blue);
+  box-shadow: 0 0 5px var(--accent-red-glow);
   transition: all 0.3s ease;
 }
 
@@ -237,31 +242,43 @@ footer .credits {
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+    box-shadow: 0 0 10px var(--accent-red), 0 0 20px var(--accent-red);
   }
   50% {
-    box-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+    box-shadow: 0 0 20px var(--accent-red), 0 0 40px var(--accent-red);
   }
   100% {
-    box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+    box-shadow: 0 0 10px var(--accent-red), 0 0 20px var(--accent-red);
   }
 }
 
 @keyframes glow-logo {
   from {
     text-shadow: 
-      0 0 5px var(--neon-purple), 
-      0 0 10px var(--neon-blue), 
-      0 0 20px var(--neon-blue), 
-      0 0 40px var(--neon-purple);
+      0 0 5px var(--accent-red), 
+      0 0 10px var(--accent-red-glow), 
+      0 0 20px var(--accent-red-glow), 
+      0 0 40px var(--accent-red);
   }
   to {
     text-shadow: 
-      0 0 10px var(--neon-blue), 
-      0 0 20px var(--neon-purple), 
-      0 0 30px var(--neon-blue), 
-      0 0 60px var(--neon-purple);
+      0 0 10px var(--accent-red-glow), 
+      0 0 20px var(--accent-red), 
+      0 0 30px var(--accent-red-glow), 
+      0 0 60px var(--accent-red);
   }
+}
+
+/* Scroll Reveal Animation */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Responsive Fixes */
@@ -293,13 +310,15 @@ footer .credits {
     max-height: 0;
     transition: max-height 0.3s ease;
     width: 100%;
-    background: #111;
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     position: absolute;
     top: 100%;
     left: 0;
     z-index: 998;
     text-align: center;
-    box-shadow: 0 0 15px var(--neon-blue);
+    box-shadow: 0 5px 15px var(--accent-red-glow);
   }
 
   #main-nav.open {
@@ -352,11 +371,13 @@ footer .credits {
     top: 100%;
     left: 0;
     width: 100%;
-    background: #111;
+    background: rgba(17, 17, 17, 0.95);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.3s ease;
-    box-shadow: 0 5px 15px var(--neon-red);
+    box-shadow: 0 5px 15px var(--accent-red-glow);
   }
   
   #main-nav.open {

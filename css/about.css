@@ -1,26 +1,41 @@
+.about-page {
+  background: linear-gradient(135deg, var(--bg-dark) 0%, #161616 100%);
+  min-height: 100vh;
+}
+
 .about-section {
-  padding: 4rem 2rem;
-  background: #0a0a0a;
+  padding: 4rem 3rem;
   text-align: center;
   color: var(--white);
-  box-shadow: 0 0 15px var(--neon-red);
+  
+  /* Glassmorphism Window Styling */
+  background: rgba(20, 20, 20, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  
+  /* Layout & Spacing */
+  margin: 4rem auto;
+  max-width: 900px;
+  width: 90%;
+  transition: all 0.4s ease;
+}
+
+.about-section:hover {
+  border-color: rgba(230, 57, 70, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(230, 57, 70, 0.05);
+  transform: translateY(-5px);
 }
 
 .about-text h1 {
   font-size: 2rem;
-  color: var(--neon-red);
+  color: var(--accent-red);
   margin-bottom: 1rem;
-  font-family: Arial, sans-serif; /* ⬅️ changed from var(--font-primary) */
-  text-shadow: 0 0 10px var(--black-bg);
-}
-
-
-.about-text h1 {
-  font-size: 2rem;
-  color: var(--neon-red);
-  margin-bottom: 1rem;
-  font-family: var(--font-primary);
-  text-shadow: 0 0 10px var(--black-bg);
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-shadow: none;
 }
 
 .about-text p {
@@ -36,27 +51,21 @@
   max-width: 800px;
   height: auto;
   margin-top: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--glass-border);
   object-fit: cover;
   max-height: 450px;
-}
-
-.about-page h1,
-.about-page h2,
-.about-page h3,
-.about-page h4,
-.about-page h5,
-.about-page h6 {
-  font-family: Arial, sans-serif !important;
 }
 
 /* About Page Mobile */
 @media screen and (max-width: 768px) {
   .about-section {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1.5rem;
     flex-direction: column;
     text-align: center;
+    margin: 3rem auto;
+    border-radius: 20px;
   }
   
   .about-text h1 {
@@ -95,8 +104,8 @@
 @media screen and (min-width: 1440px) {
   .about-section {
     padding: 5rem 4rem;
-    max-width: 1200px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: 5rem auto;
   }
 
   .about-text h1 {
