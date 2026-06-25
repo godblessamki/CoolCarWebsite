@@ -14,26 +14,6 @@
   justify-content: center;
 }
 
-.hero-logo {
-  font-family: var(--font-primary); /* Uses 'Gallos Uncial' — logo only */
-  font-size: 8rem;
-  opacity: 1; /* Slightly reduced opacity for a softer look */
-  font-weight: bold;
-  color: var(--white);
-  text-shadow: 0 0 20px var(--accent-red-glow), 0 0 40px var(--accent-red-glow);
-  line-height: 0.9;
-  letter-spacing: 2px;
-  white-space: nowrap;
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 20px;
-  border: 1px solid rgba(230, 57, 70, 0.25);
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(230, 57, 70, 0.08);
-  padding: 1.5rem 3rem 0.5rem 3rem;
-  margin: 0;
-}
-
 /* Carousel Container */
 .hero-slider {
   position: absolute;
@@ -99,22 +79,70 @@
 }
 
 /* Target the paragraph specifically */
-.hero-content p {
+.hero-content .hero-subtitle {
   margin: 0; 
-  font-size: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
   background: rgba(10, 10, 10, 0.6);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-radius: 12px;
   border: 1px solid rgba(230, 57, 70, 0.25);
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(230, 57, 70, 0.08);
-  padding: 0.8rem 1.5rem;
+  padding: 1rem 2rem;
 }
 
 /* Target the button specifically */
 .hero-content .btn {
   margin: 0;
   margin-top: 1rem;
+}
+
+/* Animated Counter Badge */
+.hero-counter {
+  margin-top: 2rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(10, 10, 10, 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 2.5rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  animation: fadeInHero 1s ease-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+
+.hero-counter:hover {
+  transform: translateY(-5px);
+  border-color: rgba(230, 57, 70, 0.3);
+}
+
+.counter-wrapper {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.hero-counter .counter-number, .hero-counter .counter-plus {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--accent-red);
+  text-shadow: 0 0 15px var(--accent-red-glow);
+}
+
+.hero-counter .counter-label {
+  font-size: 0.9rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  opacity: 0.8;
+  margin-top: 0.25rem;
 }
 
 /* Navigation Arrows */
@@ -261,15 +289,9 @@
     min-height: 70vh;
   }
   
-  .hero-logo {
-    font-size: 3rem !important;
-    margin-bottom: 0.5rem;
-    padding: 1rem 1.5rem 0.5rem 1.5rem;
-  }
-  
   .hero-subtitle {
-    font-size: 1.2rem;
-    padding: 0 1rem;
+    font-size: 1.4rem;
+    padding: 0.8rem 1.2rem;
   }
   
   /* Info Section Mobile */
@@ -285,22 +307,13 @@
   }
 }
 
-/* Very Small Phones */
-@media screen and (max-width: 480px) {
-  .hero-logo {
-    font-size: 2.5rem !important;
-  }
-}
-
 /* Tablet */
 @media screen and (max-width: 1024px) {
   .hero {
     min-height: 75vh;
   }
 
-  .hero-logo {
-    font-size: 7rem;
-  }
+
 
   .info {
     gap: 1.5rem;
@@ -318,9 +331,7 @@
     min-height: 95vh;
   }
 
-  .hero-logo {
-    font-size: 12rem;
-  }
+
 
   .info {
     padding: 5rem 4rem;

@@ -259,3 +259,38 @@ const revealObserver = new IntersectionObserver((entries) => {
 });
 
 revealElements.forEach(el => revealObserver.observe(el));
+
+// Animated Counters
+const counterElements = document.querySelectorAll('.counter-number');
+const counterObserver = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const target = entry.target;
+      const min = parseInt(target.getAttribute('data-min'), 10) || 1000;
+      const max = parseInt(target.getAttribute('data-max'), 10) || 1200;
+      const endValue = Math.floor(Math.random() * (max - min + 1)) + min;
+      const duration = 2000; // 2 seconds
+      const frameRate = 1000 / 60;
+      const totalFrames = Math.round(duration / frameRate);
+      let currentFrame = 0;
+      
+      const easeOutQuad = t => t * (2 - t);
+      
+      const counterInterval = setInterval(() => {
+        currentFrame++;
+        const progress = easeOutQuad(currentFrame / totalFrames);
+        const currentCount = Math.round(endValue * progress);
+        
+        target.textContent = currentCount;
+        
+        if (currentFrame === totalFrames) {
+          clearInterval(counterInterval);
+          target.textContent = endValue;
+          observer.unobserve(target);
+        }
+      }, frameRate);
+    }
+  });
+}, { threshold: 0.5 });
+
+counterElements.forEach(el => counterObserver.observe(el));
