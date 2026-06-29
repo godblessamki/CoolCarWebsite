@@ -266,29 +266,28 @@ const counterObserver = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const target = entry.target;
-      const min = parseInt(target.getAttribute('data-min'), 10) || 1000;
-      const max = parseInt(target.getAttribute('data-max'), 10) || 1200;
-      const endValue = Math.floor(Math.random() * (max - min + 1)) + min;
-      const duration = 2000; // 2 seconds
-      const frameRate = 1000 / 60;
-      const totalFrames = Math.round(duration / frameRate);
-      let currentFrame = 0;
-      
-      const easeOutQuad = t => t * (2 - t);
+      const finalWord = target.getAttribute('data-text') || 'STOVKY';
+      const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+      let iteration = 0;
       
       const counterInterval = setInterval(() => {
-        currentFrame++;
-        const progress = easeOutQuad(currentFrame / totalFrames);
-        const currentCount = Math.round(endValue * progress);
+        target.innerText = finalWord
+          .split("")
+          .map((letter, index) => {
+            if(index < iteration) {
+              return finalWord[index];
+            }
+            return characters[Math.floor(Math.random() * characters.length)];
+          })
+          .join("");
         
-        target.textContent = currentCount;
-        
-        if (currentFrame === totalFrames) {
+        if(iteration >= finalWord.length){ 
           clearInterval(counterInterval);
-          target.textContent = endValue;
           observer.unobserve(target);
         }
-      }, frameRate);
+        
+        iteration += 1 / 8; // Controls reveal speed
+      }, 30);
     }
   });
 }, { threshold: 0.5 });

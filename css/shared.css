@@ -16,6 +16,7 @@
   --white: #ffffff;
   --text-muted: rgba(255, 255, 255, 0.7);
   --font-primary: 'Gallos Uncial', sans-serif; /* LOGO ONLY */
+  --font-nav: 'Outfit', sans-serif;
   --font-body: 'Inter', sans-serif;
 }
 
@@ -94,10 +95,11 @@ nav a {
   position: relative;
   color: var(--white);
   text-decoration: none;
-  font-family: var(--font-body);
-  font-weight: 900;
-  font-size: 1.2rem;
-  letter-spacing: 0.5px;
+  font-family: var(--font-nav);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
   padding: 0.5rem 0;
   transition: color 0.3s, transform 0.3s;
 }
