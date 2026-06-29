@@ -29,7 +29,7 @@
   transform: translateY(-5px);
 }
 
-.about-text h1 {
+.about-text h1, .about-text h2 {
   font-size: 2rem;
   color: var(--accent-red);
   margin-bottom: 1rem;
@@ -68,7 +68,7 @@
     border-radius: 20px;
   }
   
-  .about-text h1 {
+  .about-text h1, .about-text h2 {
     font-size: 1.5rem;
   }
   
@@ -90,7 +90,7 @@
     padding: 3rem 1.5rem;
   }
 
-  .about-text h1 {
+  .about-text h1, .about-text h2 {
     font-size: 1.8rem;
   }
 
@@ -108,7 +108,7 @@
     margin: 5rem auto;
   }
 
-  .about-text h1 {
+  .about-text h1, .about-text h2 {
     font-size: 2.5rem;
   }
 

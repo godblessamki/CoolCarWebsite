@@ -11,11 +11,72 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/shared.css"/>
   <link rel="stylesheet" href="css/index.css"/>
+  <link rel="canonical" href="https://cool-car.cz/"/>
+  <meta property="og:title" content="Cool-Car - Dovoz & Prodej ověřených vozidel"/>
+  <meta property="og:description" content="Cool-Car – profesionální dovoz a prodej ověřených ojetých vozidel z Německa. Kvalitní auta bez kompromisů."/>
+  <meta property="og:url" content="https://cool-car.cz/"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="cs_CZ"/>
+  <meta property="og:site_name" content="Cool-Car"/>
+  <meta property="og:image" content="https://cool-car.cz/images/logo.webp"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Cool-Car - Dovoz & Prodej ověřených vozidel"/>
+  <meta name="twitter:description" content="Cool-Car – profesionální dovoz a prodej ověřených ojetých vozidel z Německa. Kvalitní auta bez kompromisů."/>
+  <meta name="twitter:image" content="https://cool-car.cz/images/logo.webp"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://cool-car.cz/",
+    "name": "Cool-Car",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://cool-car.cz/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDealer",
+    "name": "Cool-Car",
+    "url": "https://cool-car.cz",
+    "telephone": "+420775087087",
+    "email": "coolcar@email.cz",
+    "logo": "https://cool-car.cz/images/logo.webp",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Dlouhá 920",
+      "addressLocality": "Slavičín",
+      "postalCode": "763 21",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.0869667,
+      "longitude": 17.8839485
+    },
+    "sameAs": [
+      "https://www.instagram.com/coolcar.cz/",
+      "https://www.facebook.com/coolcarcz"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Domů", "item": "https://cool-car.cz/"}
+    ]
+  }
+  </script>
   <script src="script.js" defer></script>
 </head>
 <body>
   <header>
-    <div class="logo">COOL-CAR</div>
+    <div class="logo"><a href="index.html">COOL-CAR</a></div>
   
     <div class="menu-toggle" id="menu-toggle">
       <span></span>
@@ -40,12 +101,17 @@
   <section class="hero">
     <div class="hero-slider">
       <!-- Dynamic slides injected here -->
+      <noscript>
+        <div class="slide active"><img src="images/index-carousel/1.webp" alt="Cool-Car dovoz vozidel z Německa - ukázka 1"></div>
+        <div class="slide"><img src="images/index-carousel/2.webp" alt="Cool-Car dovoz vozidel z Německa - ukázka 2"></div>
+        <div class="slide"><img src="images/index-carousel/3.webp" alt="Cool-Car dovoz vozidel z Německa - ukázka 3"></div>
+      </noscript>
     </div>
     
     <!-- Carousel Navigation -->
     <div class="slider-nav">
-      <button class="prev" onclick="changeSlide(-1)">‹</button>
-      <button class="next" onclick="changeSlide(1)">›</button>
+      <button class="prev" aria-label="Předchozí snímek" onclick="changeSlide(-1)">‹</button>
+      <button class="next" aria-label="Další snímek" onclick="changeSlide(1)">›</button>
     </div>
     
     <!-- Dots Indicator -->
@@ -55,6 +121,7 @@
     
     <!-- Hero Content -->
     <div class="hero-content"> 
+      <h1 class="hero-title" style="font-size: 2.5rem; text-shadow: 0 0 10px rgba(0,0,0,0.8); margin-bottom: 0.5rem; line-height: 1.2;">Profesionální dovoz a prodej ověřených vozidel z Německa</h1>
       <p class="hero-subtitle">Vaše cesta k tomu správnému vozu. Bez vyjímek.</p>
       <a href="about.html" class="btn">O nás</a>
       

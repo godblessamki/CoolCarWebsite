@@ -81,7 +81,7 @@ function initDynamicCarousel(folder, containerSelector, dotContainerSelector, is
             } else {
                 const slide = document.createElement('div');
                 slide.className = `slide${activeClass}`;
-                slide.innerHTML = `<img src="${imgPath}" alt="Slide ${idx}">`;
+                slide.innerHTML = `<img src="${imgPath}" alt="Cool-Car dovoz vozidel z Německa - ukázka ${idx}">`;
                 container.appendChild(slide);
 
                 const dot = document.createElement('span');

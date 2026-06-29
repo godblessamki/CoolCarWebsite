@@ -12,8 +12,56 @@
   <link rel="stylesheet" href="css/contact.css"/>
   <link rel="icon" type="image/webp" href="images/logo.webp" />
   <script src="script.js" defer></script>
+  <link rel="canonical" href="https://cool-car.cz/contact.html"/>
+  <meta property="og:title" content="Kontakt | Cool-Car"/>
+  <meta property="og:description" content="Kontaktujte Cool-Car – zavolejte, napište e-mail nebo navštivte nás osobně. Jsme tu pro vás."/>
+  <meta property="og:url" content="https://cool-car.cz/contact.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:locale" content="cs_CZ"/>
+  <meta property="og:site_name" content="Cool-Car"/>
+  <meta property="og:image" content="https://cool-car.cz/images/logo.webp"/>
+  <meta name="twitter:card" content="summary"/>
+  <meta name="twitter:title" content="Kontakt | Cool-Car"/>
+  <meta name="twitter:description" content="Kontaktujte Cool-Car – zavolejte, napište e-mail nebo navštivte nás osobně."/>
+  <meta name="twitter:image" content="https://cool-car.cz/images/logo.webp"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDealer",
+    "name": "Cool-Car",
+    "url": "https://cool-car.cz",
+    "telephone": "+420775087087",
+    "email": "coolcar@email.cz",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Dlouhá 920",
+      "addressLocality": "Slavičín",
+      "postalCode": "763 21",
+      "addressCountry": "CZ"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 49.0869667,
+      "longitude": 17.8839485
+    },
+    "sameAs": [
+      "https://www.instagram.com/coolcar.cz/",
+      "https://www.facebook.com/coolcarcz"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Domů", "item": "https://cool-car.cz/"},
+      {"@type": "ListItem", "position": 2, "name": "Kontakt", "item": "https://cool-car.cz/contact.html"}
+    ]
+  }
+  </script>
 </head>
-<body>
+<body class="contact-page">
 
   <!-- Header -->
   <header>
@@ -35,7 +83,6 @@
   </header>
 
   <!-- Contact Section -->
-  <body class="contact-page">
   <main>
   <section class="contact">
     <h1>Kontaktujte nás</h1>
@@ -75,10 +122,14 @@
         <!-- Honeypot spam protection (invisible to real users) -->
         <input type="hidden" name="botcheck" style="display: none;">
         
-        <input type="text" name="name" placeholder="Vaše jméno" required />
-        <input type="email" name="email" placeholder="Váš e-mail" required />
-        <input type="tel" name="phone" placeholder="Vaše telefonní číslo" />
-        <textarea name="message" placeholder="Vaše zpráva" required></textarea>
+        <label for="contact-name" class="sr-only">Vaše jméno</label>
+        <input type="text" name="name" id="contact-name" placeholder="Vaše jméno" required />
+        <label for="contact-email" class="sr-only">Váš e-mail</label>
+        <input type="email" name="email" id="contact-email" placeholder="Váš e-mail" required />
+        <label for="contact-phone" class="sr-only">Vaše telefonní číslo</label>
+        <input type="tel" name="phone" id="contact-phone" placeholder="Vaše telefonní číslo" />
+        <label for="contact-message" class="sr-only">Vaše zpráva</label>
+        <textarea name="message" id="contact-message" placeholder="Vaše zpráva" required></textarea>
         <button type="submit" class="btn">Odeslat</button>
         
         <!-- Success/Error message area -->
@@ -92,6 +143,7 @@
   <iframe 
     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2612.9828234867778!2d17.883948500000002!3d49.0869667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47136531140fb8c5%3A0x31205a493cd4c87f!2sCool%20car!5e0!3m2!1scs!2scz!4v1743291686509!5m2!1scs!2scz" 
     class="map-frame" 
+    title="Mapa sídla Cool-Car, Dlouhá 920, Slavičín"
     allowfullscreen="" 
     loading="lazy" 
     referrerpolicy="no-referrer-when-downgrade">
