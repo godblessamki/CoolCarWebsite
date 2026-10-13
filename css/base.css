@@ -140,6 +140,11 @@ footer .credits {
   text-shadow: 0 0 6px var(--neon-purple);
 }
 
+footer .credits a {
+  color: var(--white);
+  text-decoration: none;
+}
+
 /* Animations */
 @keyframes fadeInHero {
   to {

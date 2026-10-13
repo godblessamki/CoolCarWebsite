@@ -169,6 +169,11 @@ footer .credits {
   text-shadow: 0 0 6px var(--accent-red-glow);
 }
 
+footer .credits a {
+  color: var(--white);
+  text-decoration: none;
+}
+
 /* Social Media Icons in Footer */
 .social-links {
   display: flex;

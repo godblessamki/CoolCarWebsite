@@ -626,6 +626,11 @@ footer .credits {
   margin-top: 0.5rem;
   text-shadow: 0 0 6px var(--neon-blue);
 }
+
+footer .credits a {
+  color: var(--white);
+  text-decoration: none;
+}
 .about-section {
   padding: 4rem 2rem;
   background: #0a0a0a;
