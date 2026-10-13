@@ -130,6 +130,14 @@
         <input type="tel" name="phone" id="contact-phone" placeholder="Vaše telefonní číslo" />
         <label for="contact-message" class="sr-only">Vaše zpráva</label>
         <textarea name="message" id="contact-message" placeholder="Vaše zpráva" required></textarea>
+        <div class="consent-checkbox">
+          <input type="checkbox" name="gdpr_consent" id="gdpr-consent" required />
+          <label for="gdpr-consent">
+            Souhlasím se zpracováním
+            <a href="privacy.html" target="_blank">osobních údajů</a>
+            za účelem vyřízení mého dotazu.
+          </label>
+        </div>
         <button type="submit" class="btn">Odeslat</button>
         
         <!-- Success/Error message area -->

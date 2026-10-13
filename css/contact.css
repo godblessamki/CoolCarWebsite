@@ -73,6 +73,59 @@
   align-self: flex-start;
 }
 
+/* GDPR Consent Checkbox */
+.consent-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  text-align: left;
+}
+
+.consent-checkbox input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border: 1px solid var(--glass-border);
+  border-radius: 4px;
+  background: var(--bg-card);
+  cursor: pointer;
+  margin-top: 2px;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.consent-checkbox input[type="checkbox"]:checked {
+  background: var(--accent-red);
+  border-color: var(--accent-red);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+  background-size: 14px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.consent-checkbox input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-red-glow);
+}
+
+.consent-checkbox label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.consent-checkbox label a {
+  color: var(--accent-red);
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.consent-checkbox label a:hover {
+  color: var(--white);
+}
+
 /* Form Status Message */
 .form-status {
   display: none;
